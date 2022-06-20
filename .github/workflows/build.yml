@@ -49,4 +49,4 @@ jobs:
         run: |
           set -eoux pipefail
           echo "changed: ${{ steps.changed-files.outputs.all }}"
-          ./build.py ${{ env.REGISTRY }} ${{ steps.changed-files.outputs.all }}
+          ./.github/workflows/build.py ${{ env.REGISTRY }} ${{ steps.changed-files.outputs.all }}

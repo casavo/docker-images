@@ -1,4 +1,4 @@
-image: gh-runner
+image: casavo/gh-runner
 tags:
   TARGET:
     - "20.04"
