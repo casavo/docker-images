@@ -1,0 +1,6 @@
+image: gh-runner
+tags:
+  TARGET:
+    - "20.04"
+platforms:
+  - linux/amd64
