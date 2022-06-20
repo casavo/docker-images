@@ -16,7 +16,7 @@ RUN curl -sSL https://github.com/docker/compose/releases/download/${DOCKER_COMPO
 RUN curl -sSL https://github.com/mikefarah/yq/releases/download/${YQ}/yq_linux_amd64 > bin/yq \
     && chmod +x bin/yq
 
-FROM summerwind/actions-runner:latest
+FROM summerwind/actions-runner-dind:latest
 
 COPY --from=fetcher /wrk/docker-buildx /usr/libexec/docker/cli-plugins/docker-buildx
 COPY --from=fetcher /wrk/docker-compose /usr/libexec/docker/cli-plugins/docker-compose
