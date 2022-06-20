@@ -1,0 +1,14 @@
+#!/usr/bin/env abs
+
+base_path = env("BOOTSTRAP_SCRIPTS_PATH") || "/etc/bootstrap_scripts"
+
+scripts = `ls $base_path/*.sh`
+if !scripts.ok {
+    exit(0)
+}
+for script in scripts.split("\n") {
+    result = `bash $script`
+    if !result.ok {
+        exit(1)
+    }
+}
