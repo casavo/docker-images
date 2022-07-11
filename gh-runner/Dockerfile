@@ -19,7 +19,7 @@ RUN curl -sSL https://github.com/docker/compose/releases/download/${DOCKER_COMPO
 RUN curl -sSL https://github.com/mikefarah/yq/releases/download/${YQ}/yq_linux_amd64 > bin/yq \
     && chmod +x bin/yq
 
-FROM summerwind/actions-runner-dind:latest
+FROM ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner-dind:v2.294.0-ubuntu-20.04-e3deb0d
 
 COPY --from=fetcher /wrk/docker-buildx /usr/libexec/docker/cli-plugins/docker-buildx
 COPY --from=fetcher /wrk/docker-compose /usr/libexec/docker/cli-plugins/docker-compose
