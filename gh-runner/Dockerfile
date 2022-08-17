@@ -40,6 +40,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - \
     && sudo npm install -g yarn \
     && sudo rm -rf /var/lib/apt/lists/*
 
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - \
+    && echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+
 RUN sudo apt-get update -y \
     && sudo apt-get install -y --no-install-recommends \
         libasound2 \
@@ -50,6 +53,7 @@ RUN sudo apt-get update -y \
         libxss1 \
         postgresql-client \
         xvfb \
+        google-chrome-stable \
     && sudo rm -rf /var/lib/apt/lists/*
 
 ENV LANG=C.UTF-8
